@@ -12,66 +12,15 @@
 
     <!-- 収集防止 -->
     <meta name="robots" content="noindex">
-    <title>TOP - ま四角の倉庫(仮称)</title>
-
-    <style>
-        body {
-            font-family: "Helvetica Neue",
-                Arial,
-                "Hiragino Kaku Gothic ProN",
-                "Hiragino Sans",
-                Meiryo,
-                sans-serif;
-        }
-
-        h1 {
-            font-weight: bold;
-            margin-left: 1rem;
-        }
-
-        h2 {
-            font-weight: bold;
-            margin-top: 1rem;
-            font-size: 1.4rem;
-            border-left: 4px solid darkorange;
-            padding-left: 10px;
-        }
-        h3 {
-            font-weight: bold;
-            margin-top: 1rem;
-            font-size: 1.1rem;
-            border-bottom: 2px solid darkorange;
-            padding-left: 10px;
-        }
-
-        .main-body {
-            background-color: rgb(236, 236, 236);
-        }
-
-        .main-container {
-            background-color: white;
-            border: 1px solid lightgrey;
-            padding-bottom: 1rem;
-            max-width: 1200px;
-        }
-
-        .main-title {
-            padding-top: 0.5rem;
-            font-weight: bold;
-            font-family: "Helvetica Neue",
-                Arial,
-                "Hiragino Kaku Gothic ProN",
-                "Hiragino Sans",
-                Meiryo,
-                sans-serif;
-        }
-    </style>
+    <title>TOP - 備忘録</title>
+    <!-- スタイルシート -->
+    <link rel="stylesheet" href="src/style.css">
 </head>
 
 <body class="main-body">
     <!-- ナビゲーションバー(?) -->
     <nav class="navbar navbar-dark bg-dark mb-2">
-        <a href="../index.html" class="navbar-brand">ま四角の倉庫(仮称)</a>
+        <a href="../index.html" class="navbar-brand">備忘録</a>
     </nav>
     <!-- 固定フッター -->
     <footer class="fixed-bottom">
@@ -100,7 +49,7 @@
 
                 <!-- セクション1 -->
                 <div id="sec1">
-                    <h2>このページは何</h2>
+                    <h2>What is this page?</h2>
                     <p class="ml-3 mr-3 mb-3">
                         暇な時に少しずつ更新していくページです。特にめぼしい情報を置く予定はなく、基本的にいろいろなことを試すページになると思います。
                     </p>
@@ -114,8 +63,9 @@
                 
                 <!-- セクション2 -->
                 <div id="sec2">
-                    <h2 class="mt-5">最近買った物リスト</h2>
-                    <div class="card">
+                    <h2 class="mt-t">コンテンツ</h2>
+                    <!-- 買ったものリスト -->
+                    <div class="card mt-3">
                         <div class="card-body">
                             <h5 class="card-title">買った物リスト</h5>
                             <h6 class="card-subtitle text-muted">小レビュー</h6>
@@ -125,16 +75,13 @@
                             </a>
                         </div>
                     </div>
-                </div>
-
-                <!-- セクション3 -->
-                <div id="sec3">
-                    <h2 class="mt-5">準備中</h2>
-                    <div class="card">
+                    <!-- 製作物報告 -->
+                    <div class="card mt-3">
                         <div class="card-body">
-                            <h5 class="card-title">準備中</h5>
-                            <h6 class="card-subtitle text-muted">準備中</h6>
-                            <p class="card-text">準備中</p>
+                            <h5 class="card-title">令和2年度製作物報告(試行)</h5>
+                            <p class="card-text">
+                                時間と暇があれば、製作物報告をここにも書きます。
+                            </p>
                             <a href="#">
                                 <button type="button" class="btn btn-primary">準備中</button>
                             </a>
