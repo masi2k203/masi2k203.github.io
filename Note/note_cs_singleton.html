@@ -12,7 +12,7 @@
 
     <!-- 収集防止 -->
     <meta name="robots" content="noindex">
-    <title>TOP - 雑多箱</title>
+    <title>シングルトン - 雑多箱</title>
     <!-- スタイルシート -->
     <link rel="stylesheet" href="/src/style.css">
 </head>
@@ -44,38 +44,43 @@
     <div class="container">
         <div class="row myBody">
             <div class="col-md-8">
-                <h2>コンテンツ</h2>
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="card">
-                                <div class="card-body">
-                                    <h5 class="card-title">作り置き</h5>
-                                    <h6 class="card-subtitle text-muted">製作したもの置き場</h6>
-                                    <p class="card-text">製作物たちを供養するための場所です。</p>
-                                    <a href="/Application/index.html" class="card-link">こちら</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="card">
-                                <div class="card-body">
-                                    <h5 class="card-title">Note</h5>
-                                    <h6 class="card-subtitle text-muted">メモ書き</h6>
-                                    <p class="card-text">色々と気になったことをここにまとめて書くと思います。</p>
-                                    <a href="/Note/index.html" class="card-link">こちら</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- お問い合わせフォーム -->
+                <!-- 本文 -->
                 <div>
-                    <h2>お問い合わせ</h2>
-                    <a class="ml-3 mr-3 mb-3"
-                        href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#109;&#111;&#116;&#111;&#50;&#107;&#70;&#51;&#64;&#111;&#117;&#116;&#108;&#111;&#111;&#107;&#46;&#106;&#112;">お問い合わせはこちらから</a>
+                    <h2>一つだけインスタンス化したい</h2>
+                    <p>
+                        WPFアプリを作成している時に、どうしても複数のWindowでデータを共有したいけど面倒くさいことはしたくない、、、と調べていくうちに、シングルトンパターンと呼ばれるものを見つけました。
+                        クラスをシングルトンパターンで実装することで、1つしかインスタンスが生成できなくなるようです。
+                        何度もやっているのに忘れてしまうので、ここにシングルトンパターンのクラスの骨格だけを残しておきます。
+                    </p>
+                    <pre>
+                        <code>
+class SampleClass
+{
+
+    private static SampleClass _Instance = new SampleClass();
+
+    // 外部からはこのメソッドでアクセスできる
+    public static TwitterTokens GetInstance()
+    {
+        return _Instance;
+    }
+
+    private SampleClass()
+    {
+        // 初期化とかを書く
+    }
+}
+                        </code>
+                    </pre>
+                    <p>
+                        実際のところ、WPFアプリならリソースをうまいこと活用してあげた方が良い気がしますが、とりあえずこれでも上手くいったのでヨシとします。
+                    </p>
+
+                    <h3>参考</h3>
+                    <a href="http://dotnetcsharptips.seesaa.net/article/403782313.html" target="_blank" rel="noopener noreferrer">C# プログラミング 再入門</a>
                 </div>
             </div>
+            <!-- Twitter -->
             <div class="col-md-4">
                 <h2>Twitter</h2>
                 <a class="twitter-timeline" data-theme="light"
