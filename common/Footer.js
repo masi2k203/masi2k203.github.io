@@ -8,7 +8,7 @@ var htmlCode =
         '<div class="navbar-nav">' +
             '<a class="nav-item nav-link" href="/index.html">TOP</a>' +
             '<a class="nav-item nav-link" href="/Application/index.html">作り置き</a>' +
-            '<a class="nav-item nav-link" href="/Note/index.html">Note</a>' +
+            '<a class="nav-item nav-link" href="/Note/index.html">書き置き</a>' +
         '</div>' +
     '</div>' +
 '</nav>' +
