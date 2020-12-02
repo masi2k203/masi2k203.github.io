@@ -50,26 +50,8 @@
                         クラスをシングルトンパターンで実装することで、1つしかインスタンスが生成できなくなるようです。
                         何度もやっているのに忘れてしまうので、ここにシングルトンパターンのクラスの骨格だけを残しておきます。
                     </p>
-                    <pre>
-                        <code>
-class SampleClass
-{
-
-    private static SampleClass _Instance = new SampleClass();
-
-    // 外部からはこのメソッドでアクセスできる
-    public static SampleClass GetInstance()
-    {
-        return _Instance;
-    }
-
-    private SampleClass()
-    {
-        // 初期化とかを書く
-    }
-}
-                        </code>
-                    </pre>
+                    <!-- コード -->
+                    <script src="https://gist.github.com/masi2k203/16c0bba1272ab81794051a5cdf052697.js"></script>
                     <p>
                         実際のところ、WPFアプリならリソースをうまいこと活用してあげた方が良い気がしますが、とりあえずこれでも上手くいったのでヨシとします。
                     </p>
