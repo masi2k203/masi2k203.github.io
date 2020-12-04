@@ -12,7 +12,14 @@
 
     <!-- 収集防止 -->
     <meta name="robots" content="noindex">
-    <title>書き置き - ターミナルサイト</title>
+
+    <!-- Twitterカード -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:creater" content="@klr8550_FB">
+    <meta name="twitter:title" content="カードを追加するだけで勝手にリストに追加したい">
+    <meta name="twitter:description" content="JavaScript初心者の適当スクリプトです。">
+
+    <title>勝手にリストに追加 - ターミナルサイト</title>
     <!-- スタイルシート -->
     <link rel="stylesheet" href="/src/style.css">
 </head>
@@ -37,13 +44,23 @@
             <div class="col-md-8">
                 <!-- 本文 -->
                 <div>
-                    <h2>目次</h2>
-                    <h3>C#関連</h3>
-                    <a href="/Note/note_cs_singleton.html">C#のシングルトンクラスの話</a>
-                    <h3>HTMLやJavaScript</h3>
-                    <a href="/Note/note_js_autoaddscript.html">カードを追加するだけで勝手にリストに追加したい</a>
-                </div>
+                    <h2>なるべく変更箇所は減らしたいなぁ、、、</h2>
+                    <p>
+                        製作物ページに簡単なリストを追加しようと思いましたが、多分更新忘れとかしそうだな、、、ってなりました。<br>
+                        3年EC科のデータ構造とアルゴリズムで若干JavaScriptを触れていたので、どうにかこうにかして勝手に追加できるようにならないかな、、、と思いながら、いろいろと調べてやってみました。<br>
+                        ほぼ未経験も同然なので、色々とヤバいことをしているかもしれないですがお許しくださいませ、、、
+                    </p>
+                    <!-- コード -->
+                    <script src="https://gist.github.com/masi2k203/7a158c38e1edd2c5b6fe7e5a67b26c25.js"></script>
+                    <p>
+                        やっていることとしては、HTML文書内から"card-title"のクラスがついている要素を取得して、それぞれの要素からタイトルを抜き出してリストに設定して、、、みたいな感じです。<br>
+                        とりあえず今は動けばいいやくらいでやっているので、そのうち改良します。
+                    </p>
 
+                    <h3>参考</h3>
+                    <a href="https://developer.mozilla.org/ja/docs/Web/API/Document/getElementsByName" target="_blank"
+                        rel="noopener noreferrer">Document.getElementsByName() - Web API | MDN (mozilla.org)</a>
+                </div>
             </div>
             <!-- Twitter -->
             <div class="col-md-4">
