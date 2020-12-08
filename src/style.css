@@ -72,3 +72,7 @@ body {
 .Body_Contents .card {
     margin-bottom: 2.4rem;
 }
+
+.Main_Text p {
+    font-weight: 400;
+}
