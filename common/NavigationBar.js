@@ -1,7 +1,7 @@
 var htmlCode = 
-'<div id="NavBar">' +
+'<div class="TopNavBar">' +
     '<nav class="navbar navbar-dark bg-dark">' +
-        '<a href="/index.html" class="navbar-brand"><strong>ターミナルサイト</strong></a>' +
+        '<a href="/index.html" class="navbar-brand">ターミナルサイト</a>' +
     '</nav>' +
 '</div>' 
 document.write(htmlCode)

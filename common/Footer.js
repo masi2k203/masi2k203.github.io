@@ -1,4 +1,5 @@
 var htmlCode =
+'<div class="FooterBar">' +
 '<footer class="fixed-bottom">' +
 '<nav class="navbar navbar-expand navbar-dark bg-info">' +
     '<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="navmenu1" aria-controls="navmenu1" aria-expanded="false" aria-label="Toggle navigation">' +
@@ -13,5 +14,6 @@ var htmlCode =
     '</div>' +
 '</nav>' +
 '</footer>'
+'</div>'
 
 document.write(htmlCode)

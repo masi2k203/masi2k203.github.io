@@ -1,75 +1,70 @@
 body {
-    font-family: "Helvetica Neue",
-        Arial,
-        "Hiragino Kaku Gothic ProN",
-        "Hiragino Sans",
-        Meiryo,
-        sans-serif;
+    background-color: white;
+    font-family: 'Noto Sans JP', sans-serif;
 }
 
-
-.main-body {
-    background-color: rgb(243, 243, 243);
+.TopNavBar {
+    font-weight: 500;
+    font-size: 2.0rem;
 }
 
-.main-container {
-    background-color: rgb(230, 230, 230);
-    border: 1px solid lightgrey;
-    padding-bottom: 1rem;
-    max-width: 1200px;
-}
-
-.main-title {
-    padding-top: 0.5rem;
-    font-weight: bold;
-    font-family: "Helvetica Neue",
-        Arial,
-        "Hiragino Kaku Gothic ProN",
-        "Hiragino Sans",
-        Meiryo,
-        sans-serif;
-}
-
-.card-body h5 {
-    font-weight: bold;
-}
-
-.card-body h6 {
-    margin-top: 3px;
-    margin-bottom: 3px;
+.FooterBar {
+    font-weight: 500;
+    font-size: 1.2rem;
 }
 
 .jumbotron h1 {
-    font-weight: bold;
+    font-weight: 700;
+    margin-bottom: 1.2rem;
 }
 
-.myBody h2 {
-    font-weight: bold;
-    font-size: 1.6rem;
-    border-left: 4px solid skyblue;
-    border-bottom: 4px solid skyblue;
-    padding-left: 10px;
-    padding-top: 10px;
-    padding-bottom: 5px;
-    margin-top: 2rem;
-    margin-bottom: 1rem;
+.jumbotron p {
+    font-weight: 500;
+    margin-bottom: 1.2rem;
 }
 
-.myBody h3 {
-    font-weight: bold;
+.Body_Contents h2 {
+    font-weight: 700;
+    font-size: 2.4rem;
+    border-bottom: 2px solid lightgray;
+    padding-bottom: 1.6rem;
+    margin-top: 2.4rem;
+    margin-bottom: 1.6rem;
+}
+
+.Body_Contents h3 {
+    font-weight: 500;
+    font-size: 2.0rem;
+    padding-bottom: 0.8rem;
+    margin-top: 1.8rem;
+    margin-bottom: 1.6rem;
+}
+
+.Body_Contents .card-body h5 {
+    font-weight: 500;
+    font-size: 2.0rem;
+    padding-bottom: 0.4rem;
+    margin-bottom: 1.0rem;
+}
+
+.Body_Contents .card-body h6 {
+    font-weight: 500;
     font-size: 1.2rem;
-    border-bottom: 2px solid skyblue;
-    padding-left: 10px;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    margin-top: 10px;
-    margin-bottom: 10px;
+    border-bottom: 1px solid lightblue;
+    padding-bottom: 0.4rem;
+    margin-bottom: 1.6rem;
 }
 
-.myBody a {
-    padding-left: 10px;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    margin-top: 10px;
-    margin-bottom: 10px;
+.Body_Contents .card-body p {
+    font-weight: 400;
+    font-size: 1.0rem;
+    margin-bottom: 1.6rem;
+}
+
+.Body_Contents .card-body a {
+    text-align: right;
+}
+
+.Body_Contents .card {
+    margin-bottom: 2.4rem;
 }
