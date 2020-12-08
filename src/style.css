@@ -40,6 +40,10 @@ body {
     margin-bottom: 1.6rem;
 }
 
+.Body_Contents p {
+    font-weight: 400;
+}
+
 .Body_Contents .card-body h5 {
     font-weight: 500;
     font-size: 2.0rem;
