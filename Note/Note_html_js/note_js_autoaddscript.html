@@ -44,13 +44,21 @@
         <script src="common/Footer.js"></script>
     -->
 
-    <!-- メイン部分 -->
+    <!-- メインコンテナ -->
     <div class="container">
         <div class="row Body_Contents">
+            <!-- 本文 -->
             <div class="col-md-8">
-                <!-- 本文 -->
-                <div>
-                    <h2>なるべく変更箇所は減らしたいなぁ、、、</h2>
+                <div class="Main_Text">
+                    <!-- タイトル・カテゴリ・更新日設定 -->
+                    <script type="text/javascript">
+                        var receiveTitle = "変更箇所を減らしたい";
+                        var receiveCategory = "HTML / Javascript";
+                        var receiveUpdate = "2020年12月9日";
+                    </script>
+                    <script src="/scripts/NoteTitleSetter.js"></script>
+
+                    <!-- 内容 -->
                     <p>
                         製作物ページに簡単なリストを追加しようと思いましたが、多分更新忘れとかしそうだな、、、ってなりました。<br>
                         3年EC科のデータ構造とアルゴリズムで若干JavaScriptを触れていたので、どうにかこうにかして勝手に追加できるようにならないかな、、、と思いながら、いろいろと調べてやってみました。<br>
@@ -68,6 +76,7 @@
                         rel="noopener noreferrer">Document.getElementsByName() - Web API | MDN (mozilla.org)</a><br>
                     <a href="https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Array"
                         target="_blank" rel="noopener noreferrer">Array - JavaScript | MDN (mozilla.org)</a>
+
                 </div>
             </div>
             <!-- Twitter -->

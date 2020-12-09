@@ -26,7 +26,7 @@
     <!-- タイトル -->
     <title>シングルトン - ターミナルサイト</title>
     <!-- スタイルシート -->
-    <link rel="stylesheet" href="../../src/style.css">
+    <link rel="stylesheet" href="/src/style.css">
 </head>
 
 <body class="main-body">
@@ -43,13 +43,21 @@
         <script src="common/Footer.js"></script>
     -->
 
-    <!-- メイン部分 -->
+    <!-- メインコンテナ -->
     <div class="container">
         <div class="row Body_Contents">
+            <!-- 本文 -->
             <div class="col-md-8">
-                <!-- 本文 -->
                 <div class="Main_Text">
-                    <h2>一つだけインスタンス化したい</h2>
+                    <!-- タイトル・カテゴリ・更新日設定 -->
+                    <script type="text/javascript">
+                        var receiveTitle = '一つだけインスタンス化したい';
+                        var receiveCategory = 'C#';
+                        var receiveUpdate = '2020年12月9日';
+                    </script>
+                    <script src="/scripts/NoteTitleSetter.js"></script>
+
+                    <!-- 内容 -->
                     <p>
                         WPFアプリを作成している時に、どうしても複数のWindowでデータを共有したいけど面倒くさいことはしたくない、、、と調べていくうちに、シングルトンパターンと呼ばれるものを見つけました。
                         クラスをシングルトンパターンで実装することで、1つしかインスタンスが生成できなくなるようです。
@@ -64,6 +72,7 @@
                     <h3>参考</h3>
                     <a href="http://dotnetcsharptips.seesaa.net/article/403782313.html" target="_blank"
                         rel="noopener noreferrer">C# プログラミング 再入門</a>
+                    
                 </div>
             </div>
             <!-- Twitter -->
