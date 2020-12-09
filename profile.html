@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="utf-8" />
+    <!-- viewport meta -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <!-- Google Web Font -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap"
+        rel="stylesheet">
+
+    <!-- 収集防止 -->
+    <meta name=" robots" content="noindex">
+
+    <!-- Twitterカード -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:creater" content="@klr8550_FB">
+    <meta name="twitter:title" content="プロフィール">
+    <meta name="twitter:description" content="簡単なプロフィールのページです。">
+
+    <!-- タイトル -->
+    <title>プロフィール - ターミナルサイト</title>
+
+    <!-- スタイルシート -->
+    <link rel="stylesheet" href="/src/style.css">
+</head>
+
+<body class="main-body">
+    <!-- ナビゲーションバー -->
+    <script src="/common/NavigationBar.js"></script>
+    <!--
+        ナビゲーションバー表示デバッグ
+        <script src="common/NavigationBar.js"></script>
+    -->
+    <!-- 固定フッター -->
+    <script src="/common/Footer.js"></script>
+    <!--
+        フッター表示デバッグ
+        <script src="common/Footer.js"></script>
+    -->
+
+    <!-- メインコンテナ -->
+    <div class="container">
+        <div class="row Body_Contents">
+            <div class="col-md-8">
+                <h2>プロフィール</h2>
+                <!-- 画像と説明 -->
+                <img src="/src/prof_icon.png" alt="">
+                <h3>About</h3>
+                <p>
+                    まし (github:masi2k203) <br>
+                    東京電機大学 情報通信工学科 3年<br>
+                    電子技研 会計<br>
+                </p>
+                <h4>詳細</h4>
+                <ul>
+                    <li>触れた言語：C・C++(マイコン) / C# </li>
+                    <li>資格・検定：漢検2級(使わない)</li>
+                    <li>好きなもの：ラーメン(煮干し)</li>
+                    <li>嫌いなもの：いろいろ</li>
+                    <li>推しなもの：三パシ / ヨルシカ / ナナヲ</li>
+                </ul>
+                <h3>リンク集</h3>
+                <div class="container">
+                    <a href="https://twitter.com/klr8550_FB" class="btn btn-outline-info btn-lg" role="button">Twitter</a>
+                    <a href="https://www.instagram.com/n0tori_89hz" class="btn btn-outline-info btn-lg" role="button">Instagram</a>
+                    <a href="https://github.com/masi2k203" class="btn btn-outline-info btn-lg" role="button">Github</a>
+                    <a href="https://music.youtube.com/playlist?list=PLMNuKY_gnYOIK7is_I38ezhrUa0vrn88v" class="btn btn-outline-info btn-lg" role="button">YT Music 公開プレイリスト</a>
+                </div>
+                <!-- お問い合わせフォーム -->
+                <div>
+                    <h3>お問い合わせ</h2>
+                        <a class="ml-3 mr-3 mb-3"
+                            href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#109;&#111;&#116;&#111;&#50;&#107;&#70;&#51;&#64;&#111;&#117;&#116;&#108;&#111;&#111;&#107;&#46;&#106;&#112;">お問い合わせはこちらから</a>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <!-- Twitter ユーザタイムライン -->
+                <script src="common/TwitterTL.js"></script>
+                <!--
+                    Twitter ユーザタイムライン 表示デバッグ
+                    <script src="common/TwitterTL.js"></script>
+                -->
+            </div>
+        </div>
+    </div>
+</body>
