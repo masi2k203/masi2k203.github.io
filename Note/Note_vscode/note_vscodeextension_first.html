@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="utf-8" />
+    <!-- viewport meta -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <!-- Google Web Font -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap"
+        rel="stylesheet">
+
+    <!-- 収集防止 -->
+    <meta name=" robots" content="noindex">
+
+    <!-- Twitterカード -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:creater" content="@klr8550_FB">
+    <meta name="twitter:title" content="VS Code 拡張機能開発メモ">
+    <meta name="twitter:description" content="テンプレとサンプルの実行">
+
+    <!-- タイトル -->
+    <title>VS Code 拡張機能開発メモ - ターミナルサイト</title>
+
+    <!-- スタイルシート -->
+    <link rel="stylesheet" href="../../src/style.css">
+</head>
+
+<body class="main-body">
+    <!-- ナビゲーションバー -->
+    <script src="../../common/NavigationBar.js"></script>
+    <!--
+        ナビゲーションバー表示デバッグ
+        <script src="common/NavigationBar.js"></script>
+    -->
+    <!-- 固定フッター -->
+    <script src="../../common/Footer.js"></script>
+    <!--
+        フッター表示デバッグ
+        <script src="common/Footer.js"></script>
+    -->
+
+    <!-- メインコンテナ -->
+    <div class="container">
+        <div class="row Body_Contents">
+            <!-- 本文 -->
+            <div class="col-md-8">
+                <div class="Main_Text">
+                    <!-- タイトル・カテゴリ・更新日設定 -->
+                    <script class="NoteDataSet" type="text/javascript">
+                        var receiveTitle = "VS Code 拡張機能開発メモ";
+                        var receiveCategory = "VScode 走り書き";
+                        var receiveUpdate = "2020年12月11日";
+                    </script>
+                    <script src="../../scripts/NoteTitleSetter.js"></script>
+
+                    <!-- 内容 -->
+                    <h3>導入</h3>
+                    <p>
+                        VScodeでPICのためにプログラムを書く際にIntelliSenseを動かすためのアプリケーションをWPFで作成していました。
+                        ただ、わざわざアプリケーションを起動するのも面倒くさいなとなり、VScode上で完結するとうれしいなと思ったこともあり、
+                        ちょっと拡張機能でも作ってみるかと思い立った次第です。
+                        見切り発車すぎるので、完結する見込みはないです。
+                    </p>
+                    <h3>やったこと</h3>
+                    <ul>
+                        <li>Nodejsのインストール</li>
+                        <li>npm install -g yo generator-code</li>
+                        <li>テンプレートをそのまま実行</li>
+                        <li>記事を参考に電卓を作ってみた</li>
+                    </ul>
+                    <p>
+                        今回の拡張機能作成は、以下のサイトを参考にさせて頂いております。
+                    </p>
+                    <ul>
+                        <li><a href="https://www.atmarkit.co.jp/ait/articles/1511/30/news030.html">Visual Studio
+                                Codeの拡張機能を作成する (1/3)：特集：Visual Studio Code早分かりガイド - ＠IT (atmarkit.co.jp)</a></li>
+                    </ul>
+                    <h3>忘れないようにメモ</h3>
+                    <h4>package.json</h4>
+                    <pre>
+{
+    "name": "helloworld",
+    "displayName": "helloworld",
+    "description": "",
+    "version": "0.0.1",
+    "engines": {
+        "vscode": "^1.52.0"
+    },
+    "categories": [
+        "Other"
+    ],
+    "activationEvents": [
+        "onCommand:helloworld.helloWorld",
+        "onCommand:helloworld.calc"
+    ],
+    "main": "./out/extension.js",
+    "contributes": {
+        "commands": [
+            {
+                "command": "helloworld.helloWorld",
+                "title": "Hello World"
+            },{
+                "command": "helloworld.calc",
+                "title": "Tiny Calculator"
+            }
+        ]
+    },
+    "scripts": {
+        "vscode:prepublish": "npm run compile",
+        "compile": "tsc -p ./",
+        "watch": "tsc -watch -p ./",
+        "pretest": "npm run compile && npm run lint",
+        "lint": "eslint src --ext ts",
+        "test": "node ./out/test/runTest.js"
+    },
+    "devDependencies": {
+        "@types/vscode": "^1.52.0",
+        "@types/glob": "^7.1.3",
+        "@types/mocha": "^8.0.4",
+        "@types/node": "^12.11.7",
+        "eslint": "^7.15.0",
+        "@typescript-eslint/eslint-plugin": "^4.9.0",
+        "@typescript-eslint/parser": "^4.9.0",
+        "glob": "^7.1.6",
+        "mocha": "^8.1.3",
+        "typescript": "^4.1.2",
+        "vscode-test": "^1.4.1"
+    }
+}
+                    </pre>
+                    <p>いじったところ</p>
+                    <ol>
+                        <li>activationEvents：onCommandでコマンドを登録する</li>
+                        <li>contributes - commands</li>
+                    </ol>
+                    <h4>extension.ts</h4>
+                    <pre>
+import * as vscode from 'vscode';
+
+// activeメソッドが呼ばれる //
+export function activate(context: vscode.ExtensionContext) {
+
+	console.log('Congratulations, your extension "helloworld" is now active!');
+
+	let disposable = vscode.commands.registerCommand('helloworld.helloWorld', () => {
+		vscode.window.showInformationMessage('Hello World from helloworld!');
+	});
+
+    // 追加したところ //
+	let calcdisposable = vscode.commands.registerCommand('helloworld.calc', () => {
+		vscode.window.showInputBox({
+			prompt:'Tiny Calculator:',
+			validateInput:param=>{
+				var regex = /\d+\s*[-+*/]\s*\d/;
+				return regex.test(param) ? '' : 'input: number [-+*/] number';
+			}
+		}).then((value) => {
+			if (value == undefined) return;
+			let result = eval(value);
+			vscode.window.showInformationMessage(value + '=' + result);
+		});
+	});
+
+	context.subscriptions.push(disposable);
+	context.subscriptions.push(calcdisposable);
+}
+
+// this method is called when your extension is deactivated
+export function deactivate() {}
+
+                    </pre>
+                    <p>いじったとこと</p>
+                    <ol>
+                        <li>activateメソッド内に書いたところがコマンド実行時によばれる。</li>
+                    </ol>
+                    <h3>最後に</h3>
+                    <p>
+                        とりあえず今日は動かせればいいかなくらいでやったので、中身をじっくりと理解するのはまた今度にします。
+                        TypeScriptは意外と使いやすそうな雰囲気があります。この点もしっかり勉強していきたいです。
+                    </p>
+                    <h3>更新履歴</h3>
+                    <ul>
+                        <li>2020年12月11日：初版。とりあえず大枠だけ書いた。</li>
+                    </ul>
+                </div>
+            </div>
+            <!-- Twitter -->
+            <div class="col-md-4">
+                <!-- Twitter ユーザタイムライン -->
+                <script src="/common/TwitterTL.js"></script>
+                <!--
+                    Twitter ユーザタイムライン 表示デバッグ
+                    <script src="common/TwitterTL.js"></script>
+                -->
+            </div>
+        </div>
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
