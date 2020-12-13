@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="utf-8" />
+    <!-- viewport meta -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <!-- Google Web Font -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap"
+        rel="stylesheet">
+
+    <!-- 収集防止 -->
+    <meta name=" robots" content="noindex">
+
+    <!-- Twitterカード -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:creater" content="@klr8550_FB">
+    <meta name="twitter:title" content="入れ子になったMenuItemからのナビゲーション">
+    <meta name="twitter:description" content="MVVMパターンでページ遷移を行う奮闘記">
+
+    <!-- タイトル -->
+    <title>入れ子になったMenuItemからのナビゲーション - ターミナルサイト</title>
+
+    <!-- スタイルシート -->
+    <link rel="stylesheet" href="/src/style.css">
+</head>
+
+<body class="main-body">
+    <!-- ナビゲーションバー -->
+    <script src="/common/NavigationBar.js"></script>
+    <!--
+        ナビゲーションバー表示デバッグ
+        <script src="common/NavigationBar.js"></script>
+    -->
+    <!-- 固定フッター -->
+    <script src="/common/Footer.js"></script>
+    <!--
+        フッター表示デバッグ
+        <script src="common/Footer.js"></script>
+    -->
+
+    <!-- メインコンテナ -->
+    <div class="container">
+        <div class="row Body_Contents">
+            <!-- 本文 -->
+            <div class="col-md-8">
+                <div class="Main_Text">
+                    <!-- タイトル・カテゴリ・更新日設定 -->
+                    <script class="NoteDataSet" type="text/javascript">
+                        var receiveTitle = "入れ子になったMenuItemからのナビゲーション";
+                        var receiveCategory = "C# WPF";
+                        var receiveUpdate = "2020年12月13日";
+                    </script>
+                    <script src="/scripts/NoteTitleSetter.js"></script>
+
+                    <!-- 内容 -->
+                    <h3>導入 ～MenuItemからのナビゲーション～</h3>
+                    <p>MVVMパターンのWPFアプリケーションを作っているとき、ページ遷移を行う機能を付けようと思いました。コードビハインドで行う分にはそこまで考える必要もないのですが、MVVMパターンに従ってコードを書くとなると、
+                    </p>
+                    <ul>
+                        <li>Behaviorを作る</li>
+                        <li>ViewModelに書く</li>
+                    </ul>
+                    <p>のどちらかになります。Nugetから取得したReactiveProperty.WPFの依存関係でMicrosoft.Xaml.Behaviors.Wpfが導入されていることもあり、Behaviorを作る方針で進みました。
+                    </p>
+                    <h3>学習段階 ～Buttonによるページ遷移～</h3>
+                    <p>何事もまずは調べてやってみないことには始まらないので、次のサイトを参考にボタンによるページ遷移を行うBehaviorを作成しました。</p>
+                    <p><a href="https://qiita.com/CodeOne/items/dd7c95ddbba45bf4b981" target="_blank"
+                            rel="noopener noreferrer">[WPF][MVVM]
+                            コードビハインドは汚さずにボタンでページ遷移する3つの方法</a></p>
+                    <script src="https://gist.github.com/masi2k203/0b85e6358230084db4af04eb15ff3a41.js"></script>
+                    <p>このBehaviorをButton要素に追加することで、指定したページに遷移することができました。</p>
+                    <h3>どうして、、、</h3>
+                    <p>この調子で行けばMenuItemにしても簡単にいけそうだな～～～と慢心しきっていましたが、現実そうも上手くは行きませんでした。事件はMenuItemがネストしている場面で起こりました。</p>
+                    <blockquote>
+                        <p>親要素いくら辿ってもFrameが出てこん、、、</p>
+                    </blockquote>
+                    <p>今考えてみてば当たり前で、ネストされているのでBehaviorを追加したMenuItemの上にあるMenuItemの方からFrameを探す必要があります。そこでかなり躓きました。</p>
+                    <h3>解決 ～ゴリ押しで上流へ遡る～</h3>
+                    <p>幸いなことに、MenuItemクラスには要素の論理上の親を取得するためのParentプロパティが存在しました。このParentプロパティを使用する方向で、ゴリ押し的に上流を遡ります。処理としては以下のような感じです。
+                    </p>
+                    <ol>
+                        <li>element(DependencyObject)を複製 (thisElementとします)</li>
+                        <li>複製した要素がMenuItemである間以下を繰り返す
+                            <ul>
+                                <li>1で複製したthisElementをMenuItemにキャスト</li>
+                                <li>キャストしたthisElementの親をParentプロパティから取得</li>
+                                <li>VisualTreeHelperを用いて親を検索</li>
+                                <li>Frameが見つかれば、FrameのNavigationServiceを返却</li>
+                            </ul>
+                        </li>
+                        <li>thisElementをその親要素に変更する</li>
+                        <li>Menuでなくなれば終了。nullを返却</li>
+                    </ol>
+                    <p>3でthisElementをその親に変更しているのは、MenuItemのネストが深い場合に親の親の親の、、、と遡ることができるようにするためです。これらの処理を追加したGetNavigationServiceメソッドは以下のようになりました。
+                    </p>
+                    <script src="https://gist.github.com/masi2k203/58537bc22e5148e90fb1657022a09e6b.js"></script>
+                    <h3>まとめ</h3>
+                    <p>どこかで一度Behaviorを作ってしまえば基本的に使いまわしができるので、結構面倒くさかったですがやっておいて良かった感じはします。少し変更すれば新規Windowの表示もできそうな予感がするので、時間があればやってみたいと思います。<br>
+                        調べるのは大事ですが、、、WPFの情報少なすぎる、、、</p>
+                    <h3>参考</h3>
+                    <p><a href="https://qiita.com/CodeOne/items/dd7c95ddbba45bf4b981" target="_blank"
+                            rel="noopener noreferrer">[WPF][MVVM]
+                            コードビハインドは汚さずにボタンでページ遷移する3つの方法</a></p>
+
+                </div>
+            </div>
+            <!-- Twitter -->
+            <div class="col-md-4">
+                <!-- Twitter ユーザタイムライン -->
+                <script src="/common/TwitterTL.js"></script>
+                <!--
+                    Twitter ユーザタイムライン 表示デバッグ
+                    <script src="common/TwitterTL.js"></script>
+                -->
+            </div>
+        </div>
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
