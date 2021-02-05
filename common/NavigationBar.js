@@ -8,7 +8,7 @@ var htmlCode =
         '<div class="collapse navbar-collapse" id="navmenu1">' +
             '<div class="navbar-nav">' + 
                 '<a class="nav-item nav-link" href="/Productions/index.html">製作物</a>' + 
-                '<a class="nav-item nav-link" href="#">ブログ</a>' +
+                '<a class="nav-item nav-link" href="/Note/index.html">ブログ</a>' +
                 '<a class="nav-item nav-link" href="#">買ったものリスト</a>'+
             '</div>'+
         '</div>'+
