@@ -2,6 +2,7 @@ body {
     background-color: white;
     font-family: 'Noto Sans JP', sans-serif;
     margin-bottom: 2.0rem;
+    padding-top: 50px;
 }
 
 li {
@@ -12,21 +13,81 @@ li {
     font-weight: 500;
     font-size: 2.0rem;
 }
+.nav-item {
+    font-size: small;
+}
 
 .FooterBar {
     font-weight: 500;
     font-size: 1.2rem;
 }
 
+.jumbotron {
+    background-image: url(./HomeBack.JPG);
+    background-size: cover;
+    background-position: center;
+    height: 60vh;
+}
+
 .jumbotron h1 {
     font-weight: 700;
-    margin-bottom: 1.2rem;
+    color: white;
+    margin-bottom: 1rem;
 }
 
 .jumbotron p {
     font-weight: 500;
     margin-bottom: 1.2rem;
+    color: white;
 }
+
+.Contents_Main h2 {
+    font-weight: 700;
+    font-size: 2.4rem;
+    border-bottom: 1px solid skyblue;
+    margin-top: 1.6rem;
+    margin-bottom: 1.6rem;
+    padding: 0.8rem;
+    padding-bottom: 1.6rem;
+}
+
+.Contents_Twitter h2 {
+    font-weight: 700;
+    font-size: 2.4rem;
+    border-bottom: 1px solid skyblue;
+    margin-top: 1.6rem;
+    margin-bottom: 1.6rem;
+    padding: 0.8rem;
+    padding-bottom: 1.6rem;
+}
+
+.card {
+    margin: 0.8rem;
+    background-color: white;
+    transition: background-color 0.2s;
+}
+.card-header {
+    font-weight: 500;
+    font-size: 1.6rem;
+}
+
+.card h4 {
+    font-weight: 500;
+    font-size: 1.6rem;
+    border-bottom: 1px solid skyblue;
+    padding-bottom: 0.8rem;
+}
+
+.card h5 {
+    font-size: 1.0rem;
+}
+
+.card:hover {
+    background-color: rgb(231, 231, 231);
+}
+
+
+
 
 .Body_Contents {
     margin-bottom: 20rem;
@@ -101,3 +162,5 @@ li {
 .Main_Text p {
     font-weight: 300;
 }
+
+
