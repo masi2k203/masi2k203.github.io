@@ -12,7 +12,8 @@
 
     <!-- Google Web Font -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap"
+        rel="stylesheet">
 
     <!-- 収集防止 -->
     <meta name="robots" content="noindex">
@@ -37,65 +38,48 @@
         ナビゲーションバー表示デバッグ
         <script src="common/NavigationBar.js"></script>
     -->
-    <!-- 固定フッター -->
-    <script src="/common/Footer.js"></script>
-    <!--
-        フッター表示デバッグ
-        <script src="common/Footer.js"></script>
-    -->
 
     <!-- メイン部分 -->
     <div class="container">
-        <div class="row Body_Contents">
-            <div class="col-md-8">
-                <div class="products">
-                    <h2>製作物一覧</h2>
-                    <div class="WPFAPPs">
-                        <h3>C# / WPF アプリケーション (放置気味)</h3>
-                        <div class="card border-0">
-                            <div class="card-body">
-                                <h5 class="card-title">VScodeでのPICプログラム補助ツール</h5>
-                                <h6 class="card-subtitle text-muted">WPFアプリ</h6>
-                                <p class="card-text">
-                                    Visual Studio CodeでPICマイコンプログラミングをする際にIntelli
-                                    Senseを使えるようにするための補助ツールです。Visual Studio CodeのC/C++拡張のjson設定ファイルを生成する形で有効化します。<br>
-                                    exe化してないので、使いたい時はGithubからクローンしてVisual Studioでビルドしてください。
-                                </p>
-                                <a href="https://github.com/masi2k203/IntelliSenseForPIC" class="btn btn-outline-info"
-                                    role="button">詳細</a>
-                            </div>
+        <div class="row Body_Main">
+            <div class="col-md-8 Contents_Main">
+                <h2>製作物</h2>
+                <div class="WPFAPP">
+                    <div class="card border-0 shadow LinkedCard">
+                        <div class="card-header">C# / WPF アプリケーション</div>
+                        <div class="card-body">
+                            <h4 class="card-title">VScodeでのPICプログラム補助ツール</h4>
+                            <p class="card-text">Visual Studio CodeでPICマイコンプログラミングをする際にIntelli
+                                Senseを使えるようにするための補助ツールです。Visual Studio CodeのC/C++拡張のjson設定ファイルを生成する形で有効化します。<br>
+                                exe化してないので、使いたい時はGithubからクローンしてVisual Studioでビルドしてください。</p>
+                            <a href="https://github.com/masi2k203/IntelliSenseForPIC"
+                                class="btn btn-outline-info stretched-link" role="button">詳細</a>
                         </div>
                     </div>
-                    <div class="UWPApps">
-                        <h3>C# / UWP アプリケーション (放置気味)</h3>
-                        <div class="card border-0">
-                            <div class="card-body">
-                                <h5 class="card-title">メモ帳</h5>
-                                <h6 class="card-subtitle text-muted">UWPアプリ</h6>
-                                <p class="card-text">
-                                    大学の図書館から借りた本<a href="https://gihyo.jp/book/2017/978-4-7741-8695-5" target="_blank"
-                                        rel="noopener noreferrer">15時間でわかる
-                                        UWP(ユニバーサルWindowsプラットフォーム)アプリ開発集中講座</a>　のメモ帳アプリを
-                                    ベースとして、キーボードアクセラレーションなどの機能を増やしたものです。<br>
-                                    GithubからクローンしてVisual Studioでビルドすれば動かせると思いますが、結構昔に作ったのものなので動作未確認です、、、<br>
-                                </p>
-                                <a href="https://github.com/masi2k203/IntelliSenseForPIC" class="btn btn-outline-info"
-                                    role="button">詳細</a>
-                            </div>
-                        </div>
-                    </div>
+                </div>
 
-                    <h3>電子工作</h3>
-                    <div class="GIKENProducts">
-                        <div class="card border-0">
-                            <div class="card-body">
-                                <h5 class="card-title">3軸加速度センサ小遊び</h5>
-                                <h6 class="card-subtitle text-muted">PICマイコン + WPFアプリ</h6>
-                                <p class="card-text">
-                                    執筆中...
-                                </p>
-                                <a href="#" class="btn btn-outline-info" role="button">詳細</a>
-                            </div>
+                <div class="UWPAPP">
+                    <div class="card border-0 shadow LinkedCard">
+                        <div class="card-header">C# / UWP アプリケーション</div>
+                        <div class="card-body">
+                            <h4 class="card-title">メモ帳</h4>
+                            <p class="card-text">大学の図書館から借りた本のメモ帳アプリを
+                                ベースとして、キーボードアクセラレーションなどの機能を増やしたものです。<br>
+                                GithubからクローンしてVisual Studioでビルドすれば動かせると思いますが、結構昔に作ったのものなので動作未確認です、、、<br></p>
+                            <a href="https://github.com/masi2k203/UWP_NotePad"
+                                class="btn btn-outline-info stretched-link" role="button">詳細</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="GIKEN">
+                    <div class="card border-0 shadow LinkedCard">
+                        <div class="card-header">PICマイコン + α</div>
+                        <div class="card-body">
+                            <h4 class="card-title">3軸加速度センサ</h4>
+                            <p class="card-text">執筆中</p>
+                            <a href="#"
+                                class="btn btn-outline-info stretched-link" role="button">詳細</a>
                         </div>
                     </div>
                 </div>
