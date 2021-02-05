@@ -10,7 +10,7 @@ class NoteData {
     // カテゴリ・更新日を追加するメソッド
     CreateInfo() {
         var htmlCode = 
-        '<h2>' + this.title + '</h2>' +
+        '<h2 style="margin-top: 3.2rem;">' + this.title + '</h2>' +
         '<div class="text-right">' + 
         '<p>カテゴリ：' + this.category + " / 更新日：" + this.update + "</p>" + 
         '</div>';
