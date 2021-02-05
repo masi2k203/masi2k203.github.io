@@ -12,7 +12,8 @@
 
     <!-- Google Web Font -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap"
+        rel="stylesheet">
 
     <!-- 収集防止 -->
     <meta name="robots" content="noindex">
@@ -36,12 +37,6 @@
         ナビゲーションバー表示デバッグ
         <script src="common/NavigationBar.js"></script>
     -->
-    <!-- 固定フッター -->
-    <script src="/common/Footer.js"></script>
-    <!--
-        フッター表示デバッグ
-        <script src="common/Footer.js"></script>
-    -->
 
     <!-- メインコンテナ -->
     <div class="container">
@@ -58,25 +53,20 @@
                     <script src="/scripts/NoteTitleSetter.js"></script>
 
                     <!-- 内容 -->
-                    <p>
-                        WPFアプリを作成している時に、どうしても複数のWindowでデータを共有したいけど面倒くさいことはしたくない、、、と調べていくうちに、シングルトンパターンと呼ばれるものを見つけました。
-                        クラスをシングルトンパターンで実装することで、1つしかインスタンスが生成できなくなるようです。
-                        何度もやっているのに忘れてしまうので、ここにシングルトンパターンのクラスの骨格だけを残しておきます。
+                    <h3
+                        id="%E3%82%B7%E3%83%B3%E3%82%B0%E3%83%AB%E3%83%88%E3%83%B3%E3%82%AF%E3%83%A9%E3%82%B9%E3%81%AE%E3%81%99%E3%81%99%E3%82%81">
+                        シングルトンクラスのすすめ</h3>
+                    <p>WPFアプリを作成している時に、どうしても複数のWindowでデータを共有したいけど面倒くさいことはしたくない、、、と調べていくうちに、シングルトンパターンと呼ばれるものを見つけました。クラスをシングルトンパターンで実装することで、1つしかインスタンスが生成できなくなるようです。何度もやっているのに忘れてしまうので、ここにシングルトンパターンのクラスの骨格だけを残しておきます。
                     </p>
-                    <!-- コード -->
                     <script src="https://gist.github.com/masi2k203/16c0bba1272ab81794051a5cdf052697.js"></script>
-                    <p>
-                        実際のところ、WPFアプリならリソースをうまいこと活用してあげた方が良い気がしますが、とりあえずこれでも上手くいったのでヨシとします。
-                    </p>
-
-                    <h3>参考</h3>
-                    <a href="http://dotnetcsharptips.seesaa.net/article/403782313.html" target="_blank"
-                        rel="noopener noreferrer">C# プログラミング 再入門</a>
-                    
+                    <p>実際のところ、WPFアプリならリソースをうまいこと活用してあげた方が良い気がしますが、とりあえずこれでも上手くいったのでヨシとします。</p>
+                    <h3 id="%E5%8F%82%E8%80%83">参考</h3>
+                    <p><a href="http://dotnetcsharptips.seesaa.net/article/403782313.html" target="_blank"
+                            rel="noopener noreferrer">C# プログラミング 再入門</a></p>
                 </div>
             </div>
             <!-- Twitter -->
-            <div class="col-md-4">
+            <div class="col-md-4 Contents_Twitter">
                 <!-- Twitter ユーザタイムライン -->
                 <script src="/common/TwitterTL.js"></script>
                 <!--
